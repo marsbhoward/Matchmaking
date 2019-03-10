@@ -5,8 +5,7 @@ class AddUserColumns < ActiveRecord::Migration[5.2]
     t.string :name
     t.string :uid
     t.string :image
-    t.string :provider
-    
+
     end
   end
 end
