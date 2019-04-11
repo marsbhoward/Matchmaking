@@ -1,4 +1,5 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
+
 <h3>Facebook Settings</h3>
 <% if resource.has_facebook_linked? %>
   <%= link_to "Unlink Facebook", authentication_path(resource), method: :delete %>
