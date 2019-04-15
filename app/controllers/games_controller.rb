@@ -1,14 +1,7 @@
 class GamesController < ApplicationController
 	before_action :user_permissions, only: [:edit, :update, :destroy]
 
-	
-  	get '/users/games' do
-    		games.index 
-    		erb :'users/games'
-    	else
-      		redirect '/login'
-    	end
-  	end
+
 
 	def index
 		@games = Game.all
@@ -19,11 +12,14 @@ class GamesController < ApplicationController
 	end
 
 	def new 
-		@game = curerent_user.games.build
+		@game = Game.create
+			:user_id => [user_id]
+			:game_id => [game_id]		
 	end
 
 	def show
-		@game = Game.find(params[:id])
+		
+		puts "you dont have any games"
 	end
 
 	def create

@@ -11,7 +11,12 @@ Rails.application.routes.draw do
 	end
 
 	resources :authentications, only: [:destroy]
+
+  	resources :users
+  	resources :games
+  	resources :publishers
   
+  	get "/users/games", to: "users#games"
 
 end
  

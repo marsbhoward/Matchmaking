@@ -10,11 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_011547) do
+ActiveRecord::Schema.define(version: 2019_04_15_234843) do
 
   create_table "games", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "publisher"
+    t.integer "year"
   end
 
   create_table "lfgs", force: :cascade do |t|
@@ -23,6 +26,15 @@ ActiveRecord::Schema.define(version: 2019_03_19_011547) do
   create_table "publishers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_games_{:id=>false}", id: false, force: :cascade do |t|
+    t.integer "user_game_id", null: false
+    t.integer "{:id=>false}_id", null: false
+    t.integer "user_id"
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_user_games_{:id=>false}_on_game_id"
+    t.index ["user_id"], name: "index_user_games_{:id=>false}_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
