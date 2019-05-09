@@ -1,0 +1,4 @@
+class PublishersController < ApplicationController
+
+
+end

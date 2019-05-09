@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   	resources :publishers
   
   	get "/users/games", to: "users#games"
+  	get "/publishers/index", to: "publishers#index"
 
 end
  

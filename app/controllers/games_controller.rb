@@ -3,31 +3,24 @@ class GamesController < ApplicationController
 
 
 
-	def index
-		@games = Game.all
-		respond_to do |f|
-			f.html { render :index }
-			f.json { render json: @games }	
-		end
-	end
+
 
 	def new 
-		@game = Game.create
-			:user_id => [user_id]
-			:game_id => [game_id]		
+		@game = Game.new
 	end
 
 	def show
-		
-		puts "you dont have any games"
+		#@game = Game.find(params[:id])
+		respond_to do |f|
+			f.html { render :show}
+		end
 	end
 
 	def create
 		@game = current_user.games.build(games_params.merge(user_id: current_user.id))
 		if @game.save
 		respond_to do |f|
-			f.html { render :edit }
-			f.json { render json: @game }	
+			f.html { render :edit }	
 			end
 		end
 	end	
@@ -36,7 +29,6 @@ class GamesController < ApplicationController
 	def edit 
 		respond_to do |f|
 			f.html { render :edit }
-			f.json { render json: @game }
 		end	
 	end
 

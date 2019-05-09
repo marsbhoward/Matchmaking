@@ -1,5 +1,5 @@
 class CreateJoinTable < ActiveRecord::Migration[5.2]
-  def change
+  def create
     create_join_table :user_games, id: false do |t|
       t.references :user, index: true, foreign_key: true
       t.references :game, index: true, foreign_key: true

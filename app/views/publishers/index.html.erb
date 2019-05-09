@@ -1,0 +1,5 @@
+<h2>
+	<% Publisher.all.each do |p| %>
+		<a href="/publisher/:publisher_name/show"> <%= p.name %> <br> 
+	<%end%>
+</h2>

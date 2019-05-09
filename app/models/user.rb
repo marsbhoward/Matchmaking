@@ -28,6 +28,12 @@ class User < ApplicationRecord
     end
   
     def list_of_games
-        self.games.count
+      results = ApplicationRecord.connection.execute("SELECT * FROM users")
+
+      if results.present?
+        return results
+      else
+        return nil
+      end 
     end
 end

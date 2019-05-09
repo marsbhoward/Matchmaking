@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 	    if @user 
 	      session[:uid] = @user.id
 	      session[:username] = @user.name
+	      session[:email] = @user.email
 	  	end
 	end
 end

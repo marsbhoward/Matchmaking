@@ -1,4 +1,7 @@
-<%if @user.games.size == 0 %>
+<h2>hello <%= session[:email]%> these are your projects</h2>
+
+<%#if @user.list_of_games == 0 %>
+<%if @user.email == @user.email %>
   <h2>You dont currently own any games :(</h2><br>
   
 <%else%>
