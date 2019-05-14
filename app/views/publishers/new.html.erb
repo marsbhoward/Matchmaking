@@ -1,9 +1,0 @@
-<form action="/games" method="POST">
-  Publisher: <%= f.collection_select :publisher:name, Publisher.order(:name)%>
-  Name:<input type="text" name="project_name" id="project_name"><br>
-  Description:<input type="text" name="description" id="description"><br>
-  Content: <input type="text" name="content" id="content"><br>
-  <input type="hidden" name="user_id" id="user_id" value= "1">
-  <input type="hidden" name = "contributors" id= "contributors" value= "Mars">
-  <input type="submit" name="submit" id="submit">
-</form>

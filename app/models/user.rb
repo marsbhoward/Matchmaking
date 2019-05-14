@@ -27,13 +27,5 @@ class User < ApplicationRecord
       self.provider.present? && self.uid.present?
     end
   
-    def list_of_games
-      results = ApplicationRecord.connection.execute("SELECT * FROM users")
-
-      if results.present?
-        return results
-      else
-        return nil
-      end 
-    end
+    
 end

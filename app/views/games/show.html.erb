@@ -1,7 +1,11 @@
 <h2>hello <%= session[:email]%> these are your projects</h2>
+@user = User.find_by(email: session[:email])
 
-<%#if @user.list_of_games == 0 %>
-<%if @user.email == @user.email %>
+
+<%########################## find by email (session)#################################### %>
+
+
+<%if @user.games.count == 0 %>
   <h2>You dont currently own any games :(</h2><br>
   
 <%else%>
