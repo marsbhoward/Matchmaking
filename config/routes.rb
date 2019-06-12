@@ -14,12 +14,12 @@ Rails.application.routes.draw do
 
   	resources :users
   	resources :games
-  	resources :publishers
+  	resources :publishers, param: :slug
   
   	
   	get "/publishers/", to: "publishers#index"
   	get "/publishers/new", to: "publishers#new"
-  	get "publisher/:publisher_name/show", to: "publishers#show"
+  	get "publisher/:slug/show", to: "publishers#show"
 
   	get "/games/show", to: "games#show"
 

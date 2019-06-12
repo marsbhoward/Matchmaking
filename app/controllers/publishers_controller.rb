@@ -5,7 +5,7 @@ class PublishersController < ApplicationController
 	end
 
 	def show
-		@publisher = Publisher.find_by(project_name: params[:project_name])
+		@publisher = Publisher.find_by(name: params[:name])
 	end
 
 end
