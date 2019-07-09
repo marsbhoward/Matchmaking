@@ -4,8 +4,8 @@ class PublishersController < ApplicationController
 		@publisher = Publisher.new
 	end
 
-	def show
-		@publisher = Publisher.find_by(name: params[:name])
+	def show 
+		@publisher = Publisher.find_by(slug: params[:slug]) 
 	end
-
+ 
 end

@@ -15,13 +15,14 @@ Rails.application.routes.draw do
   	resources :users
   	resources :games
   	resources :publishers, param: :slug
-  
+
+  	resolve("Publisher") { route_for(:publisher) }
   	
   	get "/publishers/", to: "publishers#index"
   	get "/publishers/new", to: "publishers#new"
   	get "publisher/:slug/show", to: "publishers#show"
 
-  	get "/games/show", to: "games#show"
+  	get "/games/show", to: "games#show" 
 
 end
  

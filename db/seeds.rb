@@ -7,18 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Publisher.create(name: 'Insomniac Games')
-Publisher.create(name: 'Bandai Namco')
-Publisher.create(name: 'Sony Interactive')
-Publisher.create(name: 'Microsoft Studios')
-Publisher.create(name: 'Activision Blizzard')
-Publisher.create(name: 'EA')
-Publisher.create(name: 'Nintendo')
-Publisher.create(name: 'Ubisoft')
-Publisher.create(name: 'Take-Two Interactive')
+Publisher.create(name: 'Insomniac Games',publisher_id: 1, slug: 'Insomniac Games'.parameterize)
+Publisher.create(name: 'Bandai Namco',publisher_id: 2, slug: 'Bandai Namco'.parameterize)
+Publisher.create(name: 'Sony Interactive',publisher_id: 3, slug: 'Sony Interactive'.parameterize)
+Publisher.create(name: 'Microsoft Studios',publisher_id: 4, slug: 'Microsoft Studios'.parameterize)
 
 
 
 
-#games = Game.create([{name: 'Ratchet & Clank', publisher: 'Insomniac Games', year: 2016 }, {name: 'Tekken 7', publisher: 'Bandai Namco', year: 2017}])
 
+
+
+Publisher.first.games.create(name:"Marvel’s Spider-Man", publisher_name: "Insomniac Games", year: 2018)

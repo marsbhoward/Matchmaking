@@ -1,8 +1,11 @@
 class Game < ApplicationRecord
+	extend Slugifiable::ClassMethods
+  	include Slugifiable::InstanceMethods
+  	
     has_and_belongs_to_many :users
     belongs_to :publisher
   
-      def list_of_users
-          self.users.count
-      end
+    def index
+    	@game = Game.all
+    end
 end

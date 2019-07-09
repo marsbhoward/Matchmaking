@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_05_203552) do
+ActiveRecord::Schema.define(version: 2019_07_08_165420) do
 
   create_table "games", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.string "publisher"
+    t.string "publisher_name"
     t.integer "year"
+    t.integer "publisher_id"
+    t.index ["publisher_id"], name: "index_games_on_publisher_id"
   end
 
   create_table "lfgs", force: :cascade do |t|
@@ -27,15 +29,8 @@ ActiveRecord::Schema.define(version: 2019_05_05_203552) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-  end
-
-  create_table "user_games_{:id=>false}", id: false, force: :cascade do |t|
-    t.integer "user_game_id", null: false
-    t.integer "{:id=>false}_id", null: false
-    t.integer "user_id"
-    t.integer "game_id"
-    t.index ["game_id"], name: "index_user_games_{:id=>false}_on_game_id"
-    t.index ["user_id"], name: "index_user_games_{:id=>false}_on_user_id"
+    t.integer "publisher_id"
+    t.string "slug"
   end
 
   create_table "users", force: :cascade do |t|
