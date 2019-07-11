@@ -1,5 +1,10 @@
 <h2>
 	<% Publisher.order(:name).all.each do |p| %>
-		<a href='/publisher/<%=p.slug%>/show'> <%= p.name %> <br> 
+		<a href='/publishers/<%=p.slug%>'> <%= p.name %> <br> 
 	<%end%>
 </h2>
+
+<ul>
+  <li><a href="/">Your Profile</a></li>
+  <li><a href="/logout">Log Out</a></li>
+</ul>

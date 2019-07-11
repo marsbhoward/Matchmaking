@@ -1,17 +1,17 @@
-<<<<<<< HEAD
 
-<h1> <%= @publisher.name%> <br> </h1>
 
-<h2>
+<h1> <%= @publisher.name%> <br> </h1> 
+
+<h3>
 
 	<% @publisher.games.order(:name).all.each do |g| %>
-		<%= g.name %> <br>
+		<a href='/publishers/<%=@publisher.slug%>/games/<%=g.name.slug%>'> <%= g.name %> <br> 
 	<% end %>
 
-=======
-<h1> <%= @publisher.name%> <br></h1>
 
-<h2>
-	<%= @publisher.games %>
->>>>>>> 460d15606c69e2dab95a367fdc2b01da4aab8d6e
-</h2>
+</h3>
+
+<ul>
+  <li><a href="/">Your Profile</a></li>
+  <li><a href="/logout">Log Out</a></li>
+</ul>

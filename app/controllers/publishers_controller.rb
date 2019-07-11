@@ -5,13 +5,9 @@ class PublishersController < ApplicationController
 	end
 
 	def show 
-		@publisher = Publisher.find_by(slug: params[:slug]) 
+		@publisher = Publisher.find_by(slug: params[:publisher]) 
 	end
  
-
-	def show
-		@publisher = Publisher.find_by(params[:name])
-	end
 
 	def games
 		params.require(:list_of_games).permit(:name, games: [])

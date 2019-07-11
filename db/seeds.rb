@@ -18,4 +18,4 @@ Publisher.create(name: 'Microsoft Studios',publisher_id: 4, slug: 'Microsoft Stu
 
 
 
-Publisher.first.games.create(name:"Marvel’s Spider-Man", publisher_name: "Insomniac Games", year: 2018)
+Publisher.first.games.create(name:"Marvel’s Spider-Man", publisher_name: "Insomniac Games", year: 2018, slug: "Marvel’s Spider-Man".parameterize)

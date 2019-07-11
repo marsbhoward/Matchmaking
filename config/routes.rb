@@ -13,16 +13,21 @@ Rails.application.routes.draw do
 	resources :authentications, only: [:destroy]
 
   	resources :users
-  	resources :games
-  	resources :publishers, param: :slug
+
+  	resources :publishers, param: :publisher do		
+  		resources :games, param: :game
+  	end
+  	
+
+
 
   	resolve("Publisher") { route_for(:publisher) }
+
+
   	
   	get "/publishers/", to: "publishers#index"
   	get "/publishers/new", to: "publishers#new"
-  	get 'publisher/:slug/show', to: 'publishers#show', as: 'Publisher'
-
-  	get "/games/show", to: "games#show" 
-
-end
- 
+  	get '/publishers/:publisher', to: 'publishers#show', as: 'Publisher'
+  	get '/publishers/:publisher/games/:game', to: 'games#show'
+  	
+ end

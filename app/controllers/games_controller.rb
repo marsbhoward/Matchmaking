@@ -1,5 +1,4 @@
 class GamesController < ApplicationController
-	before_action :user_permissions, only: [:edit, :update, :destroy]
 
 
 	def new 
@@ -7,7 +6,8 @@ class GamesController < ApplicationController
 	end
 
 	def show
-		@game = Game.find_by(params[:name])
+		@publisher = Publisher.find_by(slug: params[:publisher_publisher])
+		@game = @publisher.games.find_by(slug: params[:game])
 	end
 
 end

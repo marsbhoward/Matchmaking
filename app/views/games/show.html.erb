@@ -1,17 +1,20 @@
-<%########################## find by email (session)#################################### %>
+
 <% @user = User.find_by(email: session[:email]) %>
 
-<h2><%= @user.email%> these are your list of games: </h2>
+<h1> <%= @publisher.name%> <br> </h1> 
+
+<h3> <%= @game.name%> </h3>
+
+<h4> year: <%= @game.year%> </h4>
 
 
-<%if @user.user_games.present? == false %>
-  <h2>You dont currently own any games :(</h2><br>
-  
 
-<%end%>
+
+
+
 
 
 <ul>
-  <li><a href="/users/index">Your Profile</a></li>
+  <li><a href="/">Your Profile</a></li>
   <li><a href="/logout">Log Out</a></li>
 </ul>
