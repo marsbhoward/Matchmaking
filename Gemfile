@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.3.6'
 gem 'bcrypt'
 gem 'thin'
-#gem 'dotenv-rails'
+gem 'dotenv-rails', '~> 2.2.1'
 
 #User Authentication
 gem 'devise'

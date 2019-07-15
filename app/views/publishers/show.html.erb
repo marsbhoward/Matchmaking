@@ -5,7 +5,7 @@
 <h3>
 
 	<% @publisher.games.order(:name).all.each do |g| %>
-		<a href='/publishers/<%=@publisher.slug%>/games/<%=g.name.slug%>'> <%= g.name %> <br> 
+		<a href='/publishers/<%=@publisher.slug%>/games/<%=g.name.parameterize%>'> <%= g.name %> <br> 
 	<% end %>
 
 

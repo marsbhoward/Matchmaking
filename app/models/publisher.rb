@@ -9,11 +9,6 @@ class Publisher < ApplicationRecord
     	@publisher = Publisher.all
     end
 
-    def list_of_games(publishers)
-    	publishers.each.do |name|
-    		game = Games.find_by(name)
-    		self.games << games
-    	end
-    end
+end
 
 

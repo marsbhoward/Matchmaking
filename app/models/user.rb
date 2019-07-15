@@ -7,6 +7,7 @@ class User < ApplicationRecord
     has_many :games
     has_many :publishers, :through => :games
 
+
     def self.from_omniauth(auth)
         where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
           user.email = auth.info.email
@@ -26,6 +27,8 @@ class User < ApplicationRecord
     def has_facebook_linked?
       self.provider.present? && self.uid.present?
     end
-  
+
+
+
     
 end
