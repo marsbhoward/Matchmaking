@@ -3,7 +3,9 @@
 
 <% UserGame.all.each  do |g| %>
 	<%@game = Game.find_by(id: g.game_id)%>
+	<%=g.lfg?%>
 	<%=@game.name%><br>
+
 <%end%>
 <br>
 
