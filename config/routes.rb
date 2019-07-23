@@ -31,6 +31,6 @@ Rails.application.routes.draw do
   	get '/publishers/:publisher', to: 'publishers#show', as: 'Publisher'
   	get '/publishers/:publisher/games/:game', to: 'games#show'
 
-    get '/mygames/', to: 'my_games#show'
+    get '/mygames/', to: 'user_games#show'
   	
  end

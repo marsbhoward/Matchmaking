@@ -10,9 +10,10 @@
 
 <h2>add to your list of games</h2>
 
-<button type="button" <%# onclick= add to my games %> >Add to MyGames</button>
+<button type="button"<% onclick= UserGame.create(user: @user, game: @game)%> >Add to MyGames</button>
 
+<%# onclick= @user.games.create(@game(publisher: @publisher,year: @game.year, slug:@game.name.parameterize)) %>
 <ul>
   <li><a href="/">Your Profile</a></li>
   <li><a href="/logout">Log Out</a></li>
-</ul>
+</ul> 

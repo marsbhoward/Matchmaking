@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_124056) do
+ActiveRecord::Schema.define(version: 2019_07_23_155558) do
 
   create_table "games", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -23,15 +23,22 @@ ActiveRecord::Schema.define(version: 2019_07_09_124056) do
     t.index ["publisher_id"], name: "index_games_on_publisher_id"
   end
 
-  create_table "lfgs", force: :cascade do |t|
-  end
-
   create_table "publishers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "publisher_id"
     t.string "slug"
+  end
+
+  create_table "user_games", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "game_id"
+    t.boolean "lfg"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_user_games_on_game_id"
+    t.index ["user_id"], name: "index_user_games_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_124056) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
-    t.string "uid"
+    t.integer "uid"
     t.string "image"
     t.string "provider"
     t.integer "sign_in_count", default: 0, null: false

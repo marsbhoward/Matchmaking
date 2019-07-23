@@ -3,7 +3,7 @@ class Publisher < ApplicationRecord
   	include Slugifiable::InstanceMethods
     
     has_many :games 
-    has_many :users, :through => :games=
+    
 
     def index
     	@publisher = Publisher.all

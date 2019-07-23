@@ -1,4 +1,4 @@
-class MyGamesController < ApplicationController
+class UserGamesController < ApplicationController
 	def show
 		@user = User.find_by(email: session[:email])
 	end

@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
     #has_secure_password
 
-    has_many :games
-    has_many :publishers, :through => :games
+    has_many :user_games
+    has_many :games, through: :user_games
+
+    
 
 
     def self.from_omniauth(auth)
@@ -27,8 +29,6 @@ class User < ApplicationRecord
     def has_facebook_linked?
       self.provider.present? && self.uid.present?
     end
-
-
 
     
 end
