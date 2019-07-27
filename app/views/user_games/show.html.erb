@@ -3,8 +3,8 @@
 
 <% UserGame.all.each  do |g| %>
 	<%@game = Game.find_by(id: g.game_id)%>
-	<%=g.lfg?%>
-	<%=@game.name%><br>
+
+	<a href='/user_games/<%=@game.name.parameterize%>/edit' data-method="post"> <%= @game.name %> <br>
 
 <%end%>
 <br>

@@ -1,0 +1,42 @@
+
+<% @user = User.find_by(email: session[:email]) %>
+
+
+
+<h3> <%= @game.name%> </h3>
+
+<h4> year: <%= @game.year%> </h4>
+
+check_box(object_name, method, options = {}, checked_value = "1", unchecked_value = "0") public
+<form action="/action_page.php">
+  <input type="checkbox" name="lfg" value=true> Looking for Groups<br>
+  <input type="checkbox" name="lfg" value=false checked> I am not looking for groups<br>
+  <input type="submit" <%# onclick= is_checked %> value="Submit">
+</form>
+
+<%def is_checked
+	if check_box.lfg == true
+		@game.lfg = true
+	else
+		@game.lfg = false
+	end
+end %> 
+
+<button type="button"<%# onclick= is_checked %> >Remove From My Games</button>
+
+
+<ul>
+  <li><a href="/">Your Profile</a></li>
+  <li><a href="/logout">Log Out</a></li>
+</ul> 
+
+
+
+
+<%def validator
+	if checkbox.lfg == true && checkbox.lfg == false
+		flash[:notice] = "Please select only one option"
+	elsif checkbox.lfg == null
+		flash[:notice] = "Please select one option"
+	end
+end %> 
