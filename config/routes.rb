@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 		root 'devise/sessions#new'
 	end
 
-	resources :authentications, only: [:destroy]
+  resources :user_games do 
+    put :lfg
+  end
+	
+  resources :authentications, only: [:destroy]
 
   	resources :users
 
@@ -29,9 +33,13 @@ Rails.application.routes.draw do
   	get "/publishers/", to: "publishers#index"
   	get "/publishers/new", to: "publishers#new"
   	get '/publishers/:publisher', to: 'publishers#show', as: 'Publisher'
+
   	get '/publishers/:publisher/games/:game', to: 'games#show'
 
     get '/mygames/', to: 'user_games#show'
-    post '/mygames/', to: 'user_games#create'
-  	patch '/user_games/:game/edit', to: 'user_games#edit'
+    
+    post '/mygames/',params: :game_id, to: 'user_games#create'
+    get '/mygames/:game/edit', to: 'user_games#edit'
+    put '/mygames/:game/edit', to: 'user_games#update'
+    delete '/mygames/:game/edit', to: 'user_games#destroy'
  end

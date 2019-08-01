@@ -1,29 +1,39 @@
+<h3><%= @game.name%> </h3>
 
-<% @user = User.find_by(email: session[:email]) %>
-
-
-
-<h3> <%= @game.name%> </h3>
-
+<h4> publisher: <%= @game.publisher.name%></h4>
 <h4> year: <%= @game.year%> </h4>
+<%= @usergame.lfg %>
+<br>
+<br>
+<h4>
 
-check_box(object_name, method, options = {}, checked_value = "1", unchecked_value = "0") public
-<form action="/action_page.php">
-  <input type="checkbox" name="lfg" value=true> Looking for Groups<br>
-  <input type="checkbox" name="lfg" value=false checked> I am not looking for groups<br>
-  <input type="submit" <%# onclick= is_checked %> value="Submit">
-</form>
+	<%if @usergame.lfg == false%>
+	you are currenly not looking for groups in this game
+	<%else%>
+	you are currently looking for groups for this game!
+	<%end%>
+</h4>
 
-<%def is_checked
-	if check_box.lfg == true
-		@game.lfg = true
-	else
-		@game.lfg = false
-	end
-end %> 
 
-<button type="button"<%# onclick= is_checked %> >Remove From My Games</button>
 
+<%#################################################%>
+<%form_tag('/mygames/:game/edit', :method => "put")%>
+
+	<%check_box("usergame", "lfg", {},true,false)%>
+	<input name="usergame[lfg]" type="hidden" value=false />
+	<input type="checkbox" id="usergame_lfg" name="usergame[lfg]" value=true />
+	<br>
+ 
+
+  	<br>
+  	
+	 <%= button_to 'submit', "/mygames/#{@game.name.parameterize}/edit", :method => "put" %>
+
+<%#################################################%>
+<br>
+<br>
+<br>
+<%= button_to 'delete from library', "/mygames/#{@game.name.parameterize}/edit", :method => "delete" %>
 
 <ul>
   <li><a href="/">Your Profile</a></li>
@@ -31,6 +41,15 @@ end %>
 </ul> 
 
 
+
+
+<%def is_checked(game,lfg)
+	if lfg == true
+		game.lfg = true
+	else
+		game.lfg = false
+	end
+end %> 
 
 
 <%def validator

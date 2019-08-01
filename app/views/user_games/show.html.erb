@@ -3,10 +3,10 @@
 	<% UserGame.all.each  do |g| %>
 		<%@game = Game.find_by(id: g.game_id)%>
 
-		<a href='/user_games/<%=@game.name.parameterize%>/edit' data-method="patch"> <%= @game.name %> <br>
+		<a href='/mygames/<%=@game.name.parameterize%>/edit' data-method="get"> <%= @game.name %> <br>
 	<%end%>
 <%else%>
- <h2>you dont currley have any games =(</h2>
+ <h2>you dont currently have any games =(</h2>
  <%end%>
 <br>
 
