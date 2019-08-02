@@ -1,9 +1,8 @@
 <%if UserGame.first.nil? == false%>
 <h2> here are your games <%= @user.email%> </h2>
-	<% UserGame.all.each  do |g| %>
+	<% UserGame.where(:user_id => @user.id).each  do |g| %>
 		<%@game = Game.find_by(id: g.game_id)%>
-
-		<a href='/mygames/<%=@game.name.parameterize%>/edit' data-method="get"> <%= @game.name %> <br>
+				<a href='/mygames/<%=@game.name.parameterize%>/edit' data-method="get"> <%= @game.name %> <br>
 	<%end%>
 <%else%>
  <h2>you dont currently have any games =(</h2>

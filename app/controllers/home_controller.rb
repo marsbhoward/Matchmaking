@@ -1,10 +1,6 @@
 class HomeController < ApplicationController
 	def index
-		@user = User.find_by(uid: params[:uid])
-	    if @user 
-	      session[:uid] = @user.id
-	      session[:username] = @user.name
-	      session[:email] = @user.email
-	  	end
+		#### uid is passed in params but signed up user a uid of nil
+		@user = current_user
 	end
 end

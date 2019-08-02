@@ -1,8 +1,8 @@
 class UserGamesController < ApplicationController
 	def create
-		@user = User.find_by(email: session[:email])
+		@user = current_user
 		@game = Game.find_by(id: params[:game_id])
-		if UserGame.where(game_id: @game).exists? == false
+		if UserGame.where(game_id: @game.id).exists? == false
 			UserGame.create(user_id: @user.id, game_id: @game.id, :lfg=>false)
 			redirect_to '/mygames',	notice: "new game created"
 		else
@@ -12,12 +12,13 @@ class UserGamesController < ApplicationController
 	end
 
 	def show
-		@user = User.find_by(email: session[:email])
+		### adds all games too 1 list
+		@user = current_user
 	end
 
 	def edit
 		@game = Game.find_by(slug: params[:game])
-		@user = User.find_by(email: session[:email])
+		@user = current_user
 		@usergame = UserGame.find_by(game_id: @game.id)
 	end
 
