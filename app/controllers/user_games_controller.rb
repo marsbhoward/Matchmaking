@@ -25,10 +25,12 @@ class UserGamesController < ApplicationController
 		@user = current_user
 		@game = Game.find_by(slug: params[:game])
 		@usergame = UserGame.where(game_id: @game.id, user_id: @user.id)
-		@usergame.update(:lfg => params[:box])
-		
-
-		redirect_to '/mygames', notice: "your setting was saved"	
+		if params[:lfg].nil? == false
+			@usergame.update(:lfg => params[:lfg])
+			redirect_to '/mygames', notice: "your setting was saved"	
+		else
+		redirect_to '/mygames', notice: "your settings have remained the same"
+		end			
 	end
 
 	def destroy
