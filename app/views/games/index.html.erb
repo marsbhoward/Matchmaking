@@ -1,0 +1,31 @@
+<h2>People are currently playing these games</h2>
+
+<%list = []%>
+<%displayed = []%>
+<%UserGame.all.each do |ug|%>
+	<%@game = Game.find_by(id: ug.game_id)%>
+	<%list << @game %>
+	<%if UserGame.where(game_id: @game.id).count <= 1%>
+		<%displayed << @game %>
+	<% end %>
+<% end %>
+
+<% dub = list.select{|element| list.count(element) > 1}%>
+<% dub =dub.uniq%>
+
+<%dub.each do |double|%>
+	<%displayed << double%>
+<% end %>
+
+<%displayed.sort.each do |game|%>
+	<%@game = game%>
+	<% @publisher = Publisher.find_by(name: @game.publisher_name)%>
+	<a href='/publishers/<%=@publisher.slug%>/games/<%=@game.name.parameterize%>'><%=@game.name%></a>
+	<br>
+<% end %>
+
+<ul>
+  <li><a href= "/">Your Profile</a></li>
+  <li><a href="/mygames">Your Games</a></li>
+  <li><a href="/publishers/">View All Publishers</a></li>
+</ul>

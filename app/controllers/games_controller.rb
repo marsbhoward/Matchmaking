@@ -11,4 +11,7 @@ class GamesController < ApplicationController
 		@game = @publisher.games.find_by(slug: params[:game])
 	end
 
+	def index
+	end
+
 end
