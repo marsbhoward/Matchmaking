@@ -38,7 +38,6 @@ class UserGamesController < ApplicationController
 		@user = current_user
 		@game = Game.find_by(slug: params[:game])
 		@usergame = UserGame.find_by(game_id: @game.id, user_id: @user.id)
-		#####cant find usergame.id
 		@usergame.destroy
 		redirect_to '/mygames', notice: "game was deleted from your library"
 	end
