@@ -2,15 +2,18 @@
 
 <h4> publisher: <%= @game.publisher.name%></h4>
 <h4> year: <%= @game.year%> </h4>
-<%= @usergame.lfg %>
+<%= @usergame.lfg %><br>
+ id:<%=@usergame.id%>
 <br>
 <br>
 <h4>
 
 	<%if @usergame.lfg == false%>
-	you are currenly not looking for groups in this game
+		you are currenly not looking for groups in this game
+	<%elsif @usergame.lfg == false%>
+		you are currently looking for groups for this game!
 	<%else%>
-	you are currently looking for groups for this game!
+	something went wrong
 	<%end%>
 </h4>
 
@@ -19,11 +22,7 @@
 <%#################################################%>
 <%form_tag('/mygames/:game/edit', :method => "put")%>
 
-	<%check_box("usergame", "lfg", {},true,false)%>
-	<input name="usergame[lfg]" type="hidden" value=false />
-	<input type="checkbox" id="usergame_lfg" name="usergame[lfg]" value=true />
-	<br>
- 
+	<%= check_box_tag('box',true) %>
 
   	<br>
   	
