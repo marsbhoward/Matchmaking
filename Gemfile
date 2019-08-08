@@ -6,6 +6,7 @@ gem 'bcrypt'
 gem 'thin'
 gem 'dotenv-rails'
 
+
 #User Authentication
 gem 'devise'
 
@@ -13,6 +14,7 @@ gem 'devise'
 #User Authentication with face book
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
