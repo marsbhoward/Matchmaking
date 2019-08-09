@@ -2,7 +2,7 @@
 
 <%list = []%>
 <%displayed = []%>
-<%UserGame.all.each do |ug|%>
+<%UserGame.where(lfg: true).each do |ug|%>
 	<%@game = Game.find_by(id: ug.game_id)%>
 	<%list << @game %>
 	<%if UserGame.where(game_id: @game.id).count <= 1%>

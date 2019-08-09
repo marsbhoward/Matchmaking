@@ -38,9 +38,6 @@ Publisher.find_by(publisher_id: 5).games.create(name: "Injustice 2", publisher_n
 Publisher.find_by(publisher_id: 6).games.create(name: "World of Warcraft", publisher_name: Publisher.find_by(publisher_id: 6).name, year: 2015, slug: "World of Warcraft".parameterize)
 Publisher.find_by(publisher_id: 6).games.create(name:"StarCraft 2", publisher_name: Publisher.find_by(publisher_id: 6).name, year: 2015, slug: "StarCraft 2".parameterize)
 Publisher.find_by(publisher_id: 6).games.create(name:"Overwatch", publisher_name: Publisher.find_by(publisher_id: 6).name, year: 2015, slug: "Overwatch".parameterize)
-Publisher.find_by(publisher_id: 6).games.create(name:"World of Warcraft", publisher_name: Publisher.find_by(publisher_id: 6).name, year: 2015, slug: "World of Warcraft".parameterize)
-Publisher.find_by(publisher_id: 6).games.create(name:"StarCraft 2", publisher_name: Publisher.find_by(publisher_id: 6).name, year: 2015, slug: "StarCraft 2".parameterize)
-Publisher.find_by(publisher_id: 6).games.create(name:"Overwatch", publisher_name: Publisher.find_by(publisher_id: 6).name, year: 2015, slug: "Overwatch".parameterize)
 Publisher.find_by(publisher_id: 6).games.create(name:"Destiny", publisher_name: Publisher.find_by(publisher_id: 6).name, year: 2015, slug: "Destiny".parameterize)
 Publisher.find_by(publisher_id: 6).games.create(name:"Call of Duty: Black Ops 4", publisher_name: Publisher.find_by(publisher_id: 6).name, year: 2015, slug: "Call of Duty: Black Ops 4".parameterize)
 
