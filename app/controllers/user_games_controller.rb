@@ -4,7 +4,7 @@ class UserGamesController < ApplicationController
 		@game = Game.find_by(id: params[:game_id])
 		@publisher = Publisher.find_by(name: @game.publisher_name)
 		if UserGame.where(game_id: @game.id, user_id: @user.id).exists? == false
-			UserGame.create(id: UserGame.count ,user_id: @user.id, game_id: @game.id, :lfg=>false)
+			UserGame.create(user_id: @user.id, game_id: @game.id, :lfg=>false)
 			redirect_to '/mygames',	notice: "new game created"
 		else
 			redirect_to '/publishers/'+@publisher.name.parameterize+'/games/'+@game.name.parameterize, notice: "game is already in your library"	

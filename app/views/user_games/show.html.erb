@@ -1,4 +1,4 @@
-<%if UserGame.first.nil? == false%>
+<%if UserGame.where(user_id: @user.id).exists? == true%>
 <h2> here are your games <%= @user.email%> </h2>
 	<% UserGame.where(:user_id => @user.id).each  do |g| %>
 		<%@game = Game.find_by(id: g.game_id)%>
