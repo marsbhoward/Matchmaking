@@ -11,6 +11,17 @@ img, video, audio, iframe, table, form {
 	margin-bottom:20px;
 }
 
-.navbar-header{style = "background-color:powderblue;"
+.navbar-header{background-color: blue;"
 
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
 }

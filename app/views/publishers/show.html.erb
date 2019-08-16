@@ -1,16 +1,25 @@
 
 <h1> <%= @publisher.name%> <br> </h1> 
 
-<h3>
 
-	<% @publisher.games.order(:name).all.each do |g| %>
-		<a href='/publishers/<%=@publisher.slug%>/games/<%=g.name.parameterize%>'> <%= g.name %> <br> 
-	<% end %>
+<div class="row">
+	<div class="col-md-"></div>
+	<%= button_tag "display games" , data:  selection = 3 %><br>
 
 
-</h3>
+	<% if selection == 0%>
+		
 
-<ul>
-  <li><a href="/">Your Profile</a></li>
-  <li><a href="/logout">Log Out</a></li>
-</ul>
+	<%elsif selection == 2%>
+			render new publisher form
+	<%else%>
+		<h3>
+			<%# shows all games for current publisher%>
+		 	<% @publisher.games.order(:name).all.each do |g| %>
+				<a href='/publishers/<%=@publisher.slug%>/games/<%=g.name.parameterize%>'> <%= g.name %> <br> 
+			<% end %>
+		</h3>		
+	<%end%>
+	</div>
+</div>
+

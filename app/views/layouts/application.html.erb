@@ -2,6 +2,14 @@
 <html>
   <head>
     <title>Matchmaking</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+  
+  <link rel="stylesheet" href="/style.css"/>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,26 +18,72 @@
   </head>
 
   <body>
-  
-  
-   <div class="navbar navbar-default"
-    <h1>Matchmaking<img width="70" height="70" src="https://www.iconspng.com/images/puzzle-icon/puzzle-icon.jpg" alt="icon" align="center"> </h1>
-    <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span 
-            <% if user_signed_in? %>
-              <%= link_to "Edit profile", edit_user_registration_path %> |
-              <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
-            <% else %>
-              <%= link_to "Sign up", new_user_registration_path  %> |
-              <%= link_to "Login", new_user_session_path  %>
-            <% end %></span>
-          </button>
-            
-    </div>
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" >Matchmaking </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <% if user_signed_in? %>
+          <li><a href="/mygames">Your Games</a></li>
+          <li><a href="/publishers/">View All Publishers</a></li>
+          <li><a href="/lfg">Games With Groups Forming</a></a></a></li>
+        <%end%>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to "Edit profile", edit_user_registration_path %> 
+              <%= link_to "Logout", destroy_user_session_path, method: :delete  %></a></li>
+        <% else %>
+        <li>  
+           <%= link_to "Sign up", new_user_registration_path  %>
+           <%= link_to "Login", new_user_session_path  %>
+
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" align="center">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <%= yield %>
+</div>
+
+
+    
   </body>
+  <footer class="footer"  align="center" width= 100%><a href="/"><img width="70" height="70" src="https://www.iconspng.com/images/puzzle-icon/puzzle-icon.jpg" alt="icon" align="center" ></footer>
 </html>
+
+
+ <style type='text/css'>
+
+
+
+    h1 {
+        color:#0000EE;
+    }
+
+    .footer {
+    position:absolute;
+   bottom:0;
+   width:100%;
+   
+  
+    }
+    body {
+
+  
+}
+</style>

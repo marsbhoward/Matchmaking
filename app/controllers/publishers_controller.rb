@@ -6,6 +6,11 @@ class PublishersController < ApplicationController
 
 	def show 
 		@publisher = Publisher.find_by(slug: params[:publisher]) 
+		selection = 0
 	end
+
+	#def create
+		#Publisher.create(:name,:slug :name.parameterize)
+	#end
 
 end

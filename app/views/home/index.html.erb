@@ -1,10 +1,11 @@
 <h2> Hello <%= @user.email %> </h2>
 
+<%#if lfg active in any games %>
+<h5>here are the games you are currently looking for groupes in<br>
+_____________________________________<br><br>
 
-
-<ul>
-  <li><a href="/mygames">Your Games</a></li>
-  <li><a href="/publishers/">View All Publishers</a></li>
-  <li><a href="/lfg">Games With Groups Forming</a></a></a></li>
-</ul>
-
+<%UserGame.where(:user_id => @user.id, :lfg => true).each do |g|%>
+	<%@game = Game.find_by(id: g.game_id)%>
+	<%= @game.name%><br>
+<%end%>
+</h5>
