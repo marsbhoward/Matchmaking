@@ -10,7 +10,7 @@ _____________________________________<br><br>
 <%= @game.players%> </h4>
 
 
-<%= button_to 'Add to MyGames', "/mygames", :method => "post", params: {game_id: @game.id} %>
+<%= button_to "Add to MyGames", {controller: "user_games" ,action: "create", params: {game_id: @game.id}}, {:class => "btn btn-primary" }%>
 
 <%#= submit_tag "Add to MyGames2", onclick: AddToMyGames() %>
 
