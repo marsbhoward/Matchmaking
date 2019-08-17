@@ -36,8 +36,11 @@ _____________________________________<br><br>
 	</form>
 </div>
 <br>
-  	
 
-<%= button_to 'delete from library', "/mygames/#{@game.name.parameterize}/edit", :method => "delete" %>
+<div >
+	<%= button_to "delete from library", {action: "destroy"}, {:class => "btn btn-info" }%>
+</div>
+
+
 
 

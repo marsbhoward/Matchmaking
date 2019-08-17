@@ -43,5 +43,6 @@ Rails.application.routes.draw do
     get '/mygames/:game/edit', to: 'user_games#edit'
     put '/mygames/:game/edit', to: 'user_games#update'
     get '/mygames/:game/mygames/edit', to: 'user_games#update'
-    delete '/mygames/:game/edit', to: 'user_games#destroy'    
+    delete '/mygames/:game/edit', to: 'user_games#destroy' 
+    post '/mygames/:game/edit', to: 'user_games#destroy'   
  end
