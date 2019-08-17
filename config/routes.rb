@@ -42,5 +42,6 @@ Rails.application.routes.draw do
     post '/mygames/',params: :game_id, to: 'user_games#create'
     get '/mygames/:game/edit', to: 'user_games#edit'
     put '/mygames/:game/edit', to: 'user_games#update'
+    get '/mygames/:game/mygames/edit', to: 'user_games#update'
     delete '/mygames/:game/edit', to: 'user_games#destroy'    
  end

@@ -1,46 +1,42 @@
 <h2><%= @game.name%> </h2>
+_____________________________________<br><br>
 
 <h5> publisher: <%= @game.publisher.name%></h5>
-<h5> year: <%= @game.year%> </h5>
+<h5> year: <%= @game.year%> </h5><br>
+<br>
 
 <h4>
-
-	<%if @usergame.lfg == false%>
-		<h5>you are currenly not looking for groups in this game</h5>
-	<%elsif @usergame.lfg == true%>
-		<h5>you are currently looking for groups for this game!</h5>
+	<%if @usergame.lfg == false || @usergame.lfg == true %>
+		<h5>would you like to look for groups in this game?</h5>
 	<%else%>
 	something went wrong
 	<%end%>
 </h4>
-<br>
-<br>
+
 <br>
 
 
 <div class = "field">
-	<%= form_tag("/mygames/#{@game.name.parameterize}/edit", :method => "put") do %>
-		<%= hidden_field_tag :id, @usergame.id %>
-		<%= hidden_field_tag :user_id, @usergame.user_id%>
-		<%= hidden_field_tag :game_id, @usergame.game_id%>
 <%###  only display useful checkbox ####%>
-		<%if @usergame.lfg == false%>
-			do you want to look for groups in this game?<br>
-			
-			<%= check_box_tag(:lfg , true) %>yes
+	<form action="mygames/<%@game.name.parameterize%>/edit"  method="put" id="editForm">
+		<input type="hidden" form="editForm" name="id" value="@usergame.id">
+		<input type="hidden" form="editForm" name="user_id" value=" @usergame.user_id">
+		<input type="hidden" form="editForm" name="game_id" value="@usergame.game_id">
+		<%if @usergame.lfg == true%>
+			<input type="radio" form="editForm" name="lfg" value= true checked="true"> Yes
+			<input type="radio" form="editForm" name="lfg" value= false> No
 		<%else%>
-			do you want to stop looking for groups in this game?<br>
-		<%= check_box_tag(:lfg , false) %>yes
+			<input type="radio" form="editForm" name="lfg" value= true > Yes
+			<input type="radio" form="editForm" name="lfg" value= false checked="true"> No
 		<%end%>
 		<br>
 		<br>
 
-		<%= submit_tag "submit" %>
-	<% end %>
+		<input type="submit" value="submit" class="btn btn-primary"></p>
+	</form>
 </div>
 <br>
   	
-
 
 <%= button_to 'delete from library', "/mygames/#{@game.name.parameterize}/edit", :method => "delete" %>
 

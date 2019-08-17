@@ -1,6 +1,7 @@
-<%if UserGame.where(user_id: @user.id).exists? == true%>
-<h2> here are your games <%= @user.email%> </h2>
-	<% UserGame.where(:user_id => @user.id).each  do |g| %>
+<%if UserGame.where(user_id: current_user.id).exists? == true%>
+<h2> here are your games <%= current_user.email%> </h2>
+_____________________________________<br><br>
+	<% UserGame.where(:user_id => current_user.id).each  do |g| %>
 		<%@game = Game.find_by(id: g.game_id)%>
 				<a href='/mygames/<%=@game.name.parameterize%>/edit' data-method="get"> <%= @game.name %> <br>
 	<%end%>

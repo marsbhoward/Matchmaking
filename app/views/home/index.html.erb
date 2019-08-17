@@ -1,10 +1,10 @@
-<h2> Hello <%= @user.email %> </h2>
+<h1> Hello <%= current_user.email %> </h1>
 
 <%#if lfg active in any games %>
 <h5>here are the games you are currently looking for groupes in<br>
 _____________________________________<br><br>
 
-<%UserGame.where(:user_id => @user.id, :lfg => true).each do |g|%>
+<%UserGame.where(:user_id => current_user.id , :lfg => true).each do |g|%>
 	<%@game = Game.find_by(id: g.game_id)%>
 	<%= @game.name%><br>
 <%end%>
