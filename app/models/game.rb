@@ -6,13 +6,15 @@ class Game < ApplicationRecord
     has_many :users, through: :user_games
     belongs_to :publisher
 
+    lfg = {}
 
     def index
     	@game = Game.all
     end
 
     def players
-  		UserGame.where(game_id: self.id).count
+  		UserGame.grouping(self).count
   	end
+
 
 end

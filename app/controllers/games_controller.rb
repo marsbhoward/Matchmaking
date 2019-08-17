@@ -19,4 +19,6 @@ class GamesController < ApplicationController
 	def index
 	end
 
+	def grouping
+	end
 end

@@ -36,5 +36,4 @@ class UserGamesController < ApplicationController
 		@usergame.destroy
 		redirect_to '/mygames', notice: "game was deleted from your library"
 	end
-
 end

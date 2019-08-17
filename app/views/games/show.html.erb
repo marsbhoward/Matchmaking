@@ -5,16 +5,13 @@ _____________________________________<br><br>
 
 <h4> year: <%= @game.year%> </h4>
 
+<br>
+<%# button to add to MyGames%>
+<%= button_to "Add to Library", {controller: "user_games" ,action: "create", params: {game_id: @game.id}}, {:class => "btn btn-primary" }%>
+<br>
 <h4>number of users grouping: 
-<%#= UserGame.where(game_id: @game.id).count %>
+
 <%= @game.players%> </h4>
-
-
-<%= button_to "Add to MyGames", {controller: "user_games" ,action: "create", params: {game_id: @game.id}}, {:class => "btn btn-primary" }%>
-
-<%#= submit_tag "Add to MyGames2", onclick: AddToMyGames() %>
-
- <%#flash[:notice] = "Added to your games"%>
-
-<%# button_to "Add to my games",action="/mygames", method: :create%>
-
+<br>
+<%# button to display grouping %>
+<%= button_to "Display Users", {controller: "user_games" ,action: "create", params: {game_id: @game.id}}, {:class => "btn btn-info" }%>
