@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
   
-  <link rel="stylesheet" href="/style.css"/>
+  <%= stylesheet_link_tag "/public/stylesheets/style.css"%>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -18,8 +18,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-
+<body class="body">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -60,31 +59,28 @@
   <p class="alert"><%= alert %></p>
   <%= yield %>
 </div>
-
-
-    
-  </body>
-  <footer class="footer"  align="center" width= 100%><a href="/"><img width="70" height="70" src="https://www.iconspng.com/images/puzzle-icon/puzzle-icon.jpg" alt="icon" align="center" ></footer>
+</body>
+<%if user_signed_in?%>
+  <footer class="footer"  align="center" width= 100%><a href="/"><img width="70" height="70" src="https://www.iconspng.com/images/puzzle-icon/puzzle-icon.jpg" alt="icon" align="center" >
+<%end%>
+</footer>
 </html>
 
 
- <style type='text/css'>
+ <style>
 
-
-
-    h1 {
-        color: #0078FF ;
-    }
-
-    .footer {
-    position:absolute;
-   bottom:0;
-   width:100%;
    
-  
+    h1 {
+        color: #0073e6 ;
     }
-    body {
+  <%if user_signed_in?%>
+    .body {
+    background-color: white; 
+  }
+  <%else%>
+   .body {
+    background-color: lightgrey; 
+  }
+  <%end%>
 
-  
-}
 </style>
