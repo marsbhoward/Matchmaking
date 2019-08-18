@@ -20,5 +20,9 @@ class GamesController < ApplicationController
 	end
 
 	def grouping
+		@publisher = Publisher.find_by(slug: params[:publisher])
+		@game = @publisher.games.find_by(slug: params[:game])
+		render "grouping"
 	end
 end
+

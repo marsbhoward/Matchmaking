@@ -1,0 +1,15 @@
+<h1><%= @game.name%> </h1>
+_____________________________________<br>
+
+<h3> list of users looking for groups for this game </h3>
+___________________<br><br>
+
+<h3> 
+	<%@game.grouping.each do |user| %>
+	<%= user.email%><br>
+	<%end%>
+</h3>
+<br>
+
+<%= button_to "back", {action: "show", controller: "games"}, {:class => "btn btn-primary",method: "get" }%>
+

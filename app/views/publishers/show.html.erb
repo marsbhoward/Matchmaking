@@ -6,7 +6,7 @@ _____________________________________<br><br>
 <div class="row">
 	<div class="col-md-"></div>
 		 	<% @publisher.games.order(:name).all.each do |g| %>
-				<a href='/publishers/<%=@publisher.slug%>/games/<%=g.name.parameterize%>'> <%= g.name %> <br> 
+				<a href='/publishers/<%=@publisher.name.parameterize%>/games/<%=g.name.parameterize%>'> <%= g.name %> <br> 
 		</h3>		
 	<%end%>
 	</div>

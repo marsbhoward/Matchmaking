@@ -21,7 +21,7 @@ _____________________________________<br><br>
 <%displayed.sort.each do |game|%>
 	<%@game = game%>
 	<% @publisher = Publisher.find_by(name: @game.publisher_name)%>
-	<a href='/publishers/<%=@publisher.slug%>/games/<%=@game.name.parameterize%>'><%=@game.name%></a>
+	<a href='/publishers/<%=@publisher.name.parameterize%>/games/<%=@game.name.parameterize%>'><%=@game.name%></a>
 	<br>
 <% end %>
 

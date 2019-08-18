@@ -6,8 +6,6 @@ class Game < ApplicationRecord
     has_many :users, through: :user_games
     belongs_to :publisher
 
-    lfg = {}
-
     def index
     	@game = Game.all
     end
@@ -16,5 +14,10 @@ class Game < ApplicationRecord
   		UserGame.grouping(self).count
   	end
 
+  def grouping
+    UserGame.grouping(self).map do |id|
+      user = User.find_by(id: id.user_id)
+    end
 
+  end  
 end
