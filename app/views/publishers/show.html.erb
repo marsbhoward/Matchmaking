@@ -1,14 +1,15 @@
 
 <h1> <%= @publisher.name%> <br> </h1> 
+
 _____________________________________<br><br>
 
 
-<div class="row">
-	<div class="col-md-"></div>
-		 	<% @publisher.games.order(:name).all.each do |g| %>
-				<a href='/publishers/<%=@publisher.name.parameterize%>/games/<%=g.name.parameterize%>'> <%= g.name %> <br> 
-		</h3>		
-	<%end%>
-	</div>
-</div>
+		<% @publisher.games.order(:name).all.each do |g| %>
+			<a href='/publishers/<%=@publisher.name.parameterize%>/games/<%=g.name.parameterize%>'> <%= g.name %> <br> 
+		<%end%>
+		<br>
 
+
+<a href="/publishers/<%=@publisher.name.parameterize%>/create">Add a Game
+
+<%#= button_to "add a game","/publishers/#{@publisher.name.parameterize}/games/create", {:class => "btn btn-primary",method: "get" , params: @publisher}%>

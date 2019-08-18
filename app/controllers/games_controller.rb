@@ -2,12 +2,16 @@ class GamesController < ApplicationController
 
 
 	def new 
-		@game = Game.new
+		@publisher = Publisher.find_by(slug: params[:publisher_publisher]) 		
+		@publisher.games.create(name:params[:name], publisher_name: @publisher.name, year: params[:year], slug: params[:name].parameterize)
+		redirect_to '/publishers/'+@publisher.name.parameterize+'/', notice: "game added"	
 	end
 
-	#def create(publisher)
+	def create
+		@publisher = Publisher.find_by(slug: params[:publisher])
+		render "create"
 		#Publisher.find_by(publisher.id).games.createGame.create(:name, :publisher_name, :year, :publisher_id,:slug)
-	#nd
+	end
 
 
 	def show

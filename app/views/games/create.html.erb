@@ -1,0 +1,13 @@
+<h3><%=@publisher.name%></h3>
+
+<form action="games/new"  method="get" id="createForm">
+		<input type="hidden" form="createForm" name="publisher" value="@game.publisher">
+
+		name:<input type="text" form="createForm" name="name"><br>
+		year:<input type="text" form="createForm" name="year"><br>
+		
+		
+		<input type="submit" value="submit" class="btn btn-primary"></p>
+
+
+

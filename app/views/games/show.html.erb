@@ -13,8 +13,11 @@ _____________________________________<br><br>
 
 <%= @game.players%> </h4>
 <br>
-<%# button to display grouping %>
-<%= button_to "Display Users", "/publishers/#{@publisher.name.parameterize}/games/#{@game.name.parameterize}/grouping", {:class => "btn btn-info" }%>
+
+<%# button to display grouping if players are grouping %>
+	<%if @game.players > 0 %>
+		<%= button_to "Display Users", "/publishers/#{@publisher.name.parameterize}/games/#{@game.name.parameterize}/grouping", {:class => "btn btn-info" }%>
+	<%end%>
 <br>
 
 

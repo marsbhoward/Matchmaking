@@ -31,9 +31,9 @@ Rails.application.routes.draw do
 
   	
   	get "/publishers/", to: "publishers#index"
-  	get "/publishers/new", to: "publishers#new"
   	get '/publishers/:publisher', to: 'publishers#show', as: 'Publisher'
 
+    get "/publishers/:publisher/create", to: "games#create"
   	get '/publishers/:publisher/games/:game', to: 'games#show'
     post '/publishers/:publisher/games/:game', to: 'games#show'
     get "/lfg/", to: "games#index"
