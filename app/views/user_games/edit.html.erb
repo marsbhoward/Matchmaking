@@ -39,6 +39,10 @@ _____________________________________<br><br>
 
 <div >
 	<%= button_to "delete from library", {action: "destroy"}, {:class => "btn btn-info" }%>
+	<br>
+
+	<%= button_to "back", {action: "show", controller: "user_games"}, {:class => "btn btn-info",method: "get" }%>
+
 </div>
 
 

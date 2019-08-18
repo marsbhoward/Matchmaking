@@ -30,6 +30,5 @@ class User < ApplicationRecord
     def has_facebook_linked?
       self.provider.present? && self.uid.present?
     end
-
     
 end
