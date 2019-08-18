@@ -3,8 +3,12 @@ class GamesController < ApplicationController
 
 	def new 
 		@publisher = Publisher.find_by(slug: params[:publisher_publisher]) 		
-		@publisher.games.create(name:params[:name], publisher_name: @publisher.name, year: params[:year], slug: params[:name].parameterize)
-		redirect_to '/publishers/'+@publisher.name.parameterize+'/', notice: "game added"	
+		newGame =@publisher.games.create(name:params[:name], publisher_name: @publisher.name, year: params[:year], slug: params[:name].parameterize)
+		if newGame.valid? == true
+			redirect_to '/publishers/'+@publisher.name.parameterize+'/', notice: "game added"	
+		else
+			redirect_to '/publishers/'+@publisher.name.parameterize+'/', notice: "The game you attemted to add is already present or has not been released"
+		end
 	end
 
 	def create
@@ -17,6 +21,7 @@ class GamesController < ApplicationController
 	def show
 		@user = current_user
 		@publisher = Publisher.find_by(slug: params[:publisher_publisher])
+		#issue with games with same name but different years
 		@game = @publisher.games.find_by(slug: params[:game])
 	end
 

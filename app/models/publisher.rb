@@ -5,6 +5,8 @@ class Publisher < ApplicationRecord
     has_many :games 
     has_many :user_games, through: :games
     has_many :users, through: :user_games
+
+    validates :name, uniqueness: true, presence: true
     
 
     def index
