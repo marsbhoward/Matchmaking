@@ -13,19 +13,20 @@
  *= require_tree .
  *= require_self
  */
-<style>
+ <style>
 
     h1 {
         color: #4d79ff ;
     }
 
     .footer {
-    position:fixed;
+   position:fixed;
    bottom:0;
    width:100%;
-   background-color: white
+   background-color: white;
 
     }
   
 
 </style>
+ 
