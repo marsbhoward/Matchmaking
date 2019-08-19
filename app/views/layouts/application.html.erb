@@ -27,7 +27,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a href= "/" class="navbar-brand">Matchmaking</a>
+      <%if user_signed_in?%>
+        <a href= "/" class="navbar-brand">Matchmaking</a>
+      <%else%>
+        <a href="/"><img width="80" height="80" padding ="0"  src="https://www.iconspng.com/images/puzzle-icon/puzzle-icon.jpg" alt="icon" align="center" >
+      <%end%>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -79,8 +83,9 @@
   }
   <%else%>
    .body {
-    background-color: lightgrey; 
+    background-image: url(https://www.dovelopers.com/wp-content/uploads/2018/04/dovelopers-connect.png);
   }
   <%end%>
+
 
 </style>
