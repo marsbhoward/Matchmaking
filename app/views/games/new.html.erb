@@ -1,0 +1,13 @@
+<h3><%=@publisher.name%></h3>
+
+<%= form_for :game do |f| %>
+	Title: <%= f.text_field :name%><br>
+	
+	<%= f.hidden_field :publisher_name, value: @publisher.name %>
+	
+	
+	Year: <%= f.number_field :year%><br>
+	Slug: <%= f.text_field :slug%><br>
+
+	<%=f.submit "Add Game", class: 'btn btn-primary'%>
+<%end%>

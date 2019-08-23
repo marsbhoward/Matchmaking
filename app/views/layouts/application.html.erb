@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
   
-  <%= stylesheet_link_tag "/public/stylesheets/style.css"%>
+  
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -30,7 +30,7 @@
       <%if user_signed_in?%>
         <a href= "/" class="navbar-brand">Matchmaking</a>
       <%else%>
-        <a href="/"><img width="80" height="80" padding ="0"  src="https://www.iconspng.com/images/puzzle-icon/puzzle-icon.jpg" alt="icon" align="center" >
+        <%= image_tag( 'icon.png',class: 'nav navbar-header', size: '80', href: '/', alt: 'icon')%>
       <%end%>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -65,18 +65,19 @@
 </div>
 </body>
 <%if user_signed_in?%>
-  <footer class="footer"  align="center" width= 100%><a href="/"><img width="70" height="70" src="https://www.iconspng.com/images/puzzle-icon/puzzle-icon.jpg" alt="icon" align="center" >
+  <footer class="footer"  align="center" width= 100%><a href="/">
+  <%= image_tag( 'icon.png', width: '70px', href: '/', alt: 'icon')%>
+  </footer>
 <%end%>
-</footer>
 </html>
 
 
  <style>
 
-   
-    h1 {
-        color: #0073e6 ;
-    }
+   h1 {
+  color: #4d79ff ;
+}
+
   <%if user_signed_in?%>
     .body {
     background-color: white; 

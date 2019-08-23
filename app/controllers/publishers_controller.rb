@@ -4,8 +4,8 @@ class PublishersController < ApplicationController
 		@publisher = Publisher.new
 	end
 
-	def show 
-		@publisher = Publisher.find_by(slug: params[:publisher]) 
+	def show 	
+		@publisher = Publisher.find_by(slug: params[:id]) 
 		selection = 0
 	end
 

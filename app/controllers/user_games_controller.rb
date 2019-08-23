@@ -11,6 +11,9 @@ class UserGamesController < ApplicationController
 		end
 		 
 	end
+	
+	def index
+	end
 
 	def show
 		

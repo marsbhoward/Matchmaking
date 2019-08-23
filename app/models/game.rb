@@ -6,10 +6,9 @@ class Game < ApplicationRecord
     has_many :users, through: :user_games
     belongs_to :publisher
 
-    validates :name, presence: true
 
-    validates :year, presence: true
-    validates :year, numericality: { less_than: Time.now.year }
+    
+
 
     def index
     	@game = Game.all

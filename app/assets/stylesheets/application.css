@@ -13,20 +13,20 @@
  *= require_tree .
  *= require_self
  */
- <style>
+config.assets.enabled = true
 
-    h1 {
-        color: #4d79ff ;
-    }
+h1 {
+	color: #4d79ff ;
+}
 
-    .footer {
-   position:fixed;
-   bottom:0;
-   width:100%;
-   background-color: white;
+.footer {
+	position:fixed;
+   	bottom:0;
+   	width:100%;
+   	background-color: white;
 
-    }
+}
   
 
-</style>
+
  
